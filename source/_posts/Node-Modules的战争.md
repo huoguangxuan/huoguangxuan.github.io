@@ -4,7 +4,7 @@ title: Node模块的战争:为什么CommonJS和ES Modules不能统一
 
 ---
 
-作者：[Dan Fabulich](https://danfabulich.medium.com/?source=post_page-----9617135eeca1-----------------------------------) [Follow](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fsubscribe%2Fuser%2Fa0b6e5159037%2F9617135eeca1&operation=register&redirect=https%3A%2F%2Fredfin.engineering%2Fnode-modules-at-war-why-commonjs-and-es-modules-cant-get-along-9617135eeca1&user=Dan Fabulich&userId=a0b6e5159037&source=post_page-a0b6e5159037----9617135eeca1---------------------follow_byline--------------)
+作者：[Dan Fabulich](https://danfabulich.medium.com/?source=post_page-----9617135eeca1-----------------------------------) 
 
 文章来源：https://redfin.engineering/node-modules-at-war-why-commonjs-and-es-modules-cant-get-along-9617135eeca1
 
@@ -21,8 +21,7 @@ CJS使用 `require()` 和 `module.exports`;ESM使用 `import`和`export`。
 **ESM 和CJS 是两个完全不同的种类。**表面上看，ESM与CJS非常相似，但是他们的执行过程完全不同。
 
 他们俩一个是小蜜蜂，一个是大黄蜂。(作者意思是，他们犹如小蜜蜂和大黄蜂，放在一起，看起来根本分不清谁是谁。)
-
-![](/Users/hgx/Downloads/1_ljab8kLJtGC-o36VQ7vBZg.jpeg)
+![](/images/hornet.jpg)
 
 
 
@@ -355,9 +354,9 @@ import {beer} from 'beer';
 
 动态模块倡导者提议禁止在动态模块使用星导出，但是 [TC39拒绝了这一提议](https://github.com/tc39/ecma262/pull/1306#issuecomment-467761625)，有个TC39成员认为说动态模块被星导出毒害的提议是“语法破坏”。
 
+![](/images/star.png)
 
 
-![1_YFBh0ZgMSA9Qzx1mBqlfgA](/Users/hgx/Downloads/1_YFBh0ZgMSA9Qzx1mBqlfgA.png)
 
 ​																							毒星星表示非常愤怒💢哈哈
 
