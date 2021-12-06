@@ -93,14 +93,17 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>作者：<a target="_blank" rel="noopener" href="https://danfabulich.medium.com/?source=post_page-----9617135eeca1-----------------------------------">Dan Fabulich</a> [Follow](<a target="_blank" rel="noopener" href="https://medium.com/m/signin?actionUrl=https://medium.com/_/subscribe/user/a0b6e5159037/9617135eeca1&amp;operation=register&amp;redirect=https://redfin.engineering/node-modules-at-war-why-commonjs-and-es-modules-cant-get-along-9617135eeca1&amp;user=Dan">https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fsubscribe%2Fuser%2Fa0b6e5159037%2F9617135eeca1&amp;operation=register&amp;redirect=https%3A%2F%2Fredfin.engineering%2Fnode-modules-at-war-why-commonjs-and-es-modules-cant-get-along-9617135eeca1&amp;user=Dan</a> Fabulich&amp;userId=a0b6e5159037&amp;source=post_page-a0b6e5159037—-9617135eeca1———————follow_byline————–)</p>
+        <p>作者：<a target="_blank" rel="noopener" href="https://danfabulich.medium.com/?source=post_page-----9617135eeca1-----------------------------------">Dan Fabulich</a><br>关注：[Follow](<a target="_blank" rel="noopener" href="https://medium.com/m/signin?actionUrl=https://medium.com/_/subscribe/user/a0b6e5159037/9617135eeca1&amp;operation=register&amp;redirect=https://redfin.engineering/node-modules-at-war-why-commonjs-and-es-modules-cant-get-along-9617135eeca1&amp;user=Dan">https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fsubscribe%2Fuser%2Fa0b6e5159037%2F9617135eeca1&amp;operation=register&amp;redirect=https%3A%2F%2Fredfin.engineering%2Fnode-modules-at-war-why-commonjs-and-es-modules-cant-get-along-9617135eeca1&amp;user=Dan</a> Fabulich&amp;userId=a0b6e5159037&amp;source=post_page-a0b6e5159037—-9617135eeca1———————follow_byline————–)</p>
 <p>文章来源：<a target="_blank" rel="noopener" href="https://redfin.engineering/node-modules-at-war-why-commonjs-and-es-modules-cant-get-along-9617135eeca1">https://redfin.engineering/node-modules-at-war-why-commonjs-and-es-modules-cant-get-along-9617135eeca1</a></p>
 <p>二者虽然可以配合着使用，但却非常麻烦。</p>
 <p>在Node14版本中，存在着两个模块模式：分别是老一代的CommonJS(CJS)模式和新一代ESM(也被称为EJS)模式。</p>
 <p>CJS使用 <code>require()</code> 和 <code>module.exports</code>;ESM使用 <code>import</code>和<code>export</code>。</p>
 <p><strong>ESM 和CJS 是两个完全不同的种类。</strong>表面上看，ESM与CJS非常相似，但是他们的执行过程完全不同。</p>
 <p>他们俩一个是小蜜蜂，一个是大黄蜂。(作者意思是，他们犹如小蜜蜂和大黄蜂，放在一起，看起来根本分不清谁是谁。)</p>
-<p><img src="/Users/hgx/Downloads/1_ljab8kLJtGC-o36VQ7vBZg.jpeg"></p>
+
+
+
+
 <p><strong>在ESM中使用CJS是很麻烦的事，反之依然。</strong></p>
 <p>下面是他们配合使用的一些规则，后面我会详细的去解释他们：</p>
 <ol>
@@ -227,7 +230,9 @@
 <p>不幸又来了，loader没有办法知道星导出到底从动态模块导出啥。</p>
 <p>动态模块星导出在规范遵循方面也产生一些争议。例如，<code>export * from &#39;omg&#39;; export * from &#39;bbq&#39;</code>,当 <code>bbq</code> 和<code>omg</code> 都具名导出同样名字的 <code>wtf</code> 估计会抛异常。允许用户自定义导出名字意味着这个校验的环节需要以某种方式让用户可手选/忽略。</p>
 <p>动态模块倡导者提议禁止在动态模块使用星导出，但是 <a target="_blank" rel="noopener" href="https://github.com/tc39/ecma262/pull/1306#issuecomment-467761625">TC39拒绝了这一提议</a>，有个TC39成员认为说动态模块被星导出毒害的提议是“语法破坏”。</p>
-<p><img src="/Users/hgx/Downloads/1_YFBh0ZgMSA9Qzx1mBqlfgA.png" alt="1_YFBh0ZgMSA9Qzx1mBqlfgA"></p>
+
+
+
 <p>​                                                                                            毒星星表示非常愤怒💢哈哈</p>
 <p>（在我看来，我们已经在生活在一个语法破坏的世界。在node14,具名导出有毒，在动态模块，星导出也有毒。由于具名导出非常普遍，星导出相对少见，在node生态动态模块的毒害会减少）</p>
 <p>这也许不是动态模块的归宿。一个提议是所有的node模块都转到动态模块，甚至是存粹的esm 模块，摒弃node 中ESM的多相loader。令人惊奇的是，对用户没有明显可见的影响，除了会轻微影响页面启动性能；ESM 多相loader的设计是建立在一个低网速加载脚本的场景。</p>
@@ -272,7 +277,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/18/Node-Modules%E7%9A%84%E6%88%98%E4%BA%89/" data-id="ckwoqwwsn0001w4fy4n4bge9u" data-title="Node模块的战争:为什么CommonJS和ES Modules不能统一" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/11/18/Node-Modules%E7%9A%84%E6%88%98%E4%BA%89/" data-id="ckwujmpi10001mr1ifw2p47ef" data-title="Node模块的战争:为什么CommonJS和ES Modules不能统一" class="article-share-link">Share</a>
       
       
       
@@ -323,7 +328,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/18/hello-world/" data-id="ckwoqwwsg0000w4fy983u995p" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/11/18/hello-world/" data-id="ckwujmphq0000mr1ib0d4co6h" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
